@@ -46,5 +46,5 @@ app.post('/api', (req, res) => {
 // look up meta data about this conversation
 const lookUpConversation = convoId => {
      return request.get('https://driftapi.com/conversations/'+convoId+'/transcript')
-         .set(`Authorization`, `bearer H2kKi8jAezpHedD0Y110YIAmE4je00Fo`)
+         .set(`Authorization`, `bearer {token}`)
 }
