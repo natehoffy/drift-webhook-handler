@@ -2,18 +2,20 @@
   "name": "webhook-handler",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node routes/routes.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.2.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "ngrok": "^3.1.0",
-    "nodemon": "^1.12.1",
+    "nodemon": "^1.19.4",
     "superagent": "3.8.1"
   }
 }
