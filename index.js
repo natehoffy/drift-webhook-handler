@@ -16,6 +16,16 @@ app.listen(PORT, () => console.log(`Testing app listening on port ${PORT}!`))
 // so the endpoint doesn't refresh every time you restart
 ngrok.connect(PORT).then(url => console.log(`External Forwarding URL is: ${url}/api`))
 
+// look up meta data about this conversation
+const lookUpConversation = convoId => {
+    request.get('https://driftapi.com/conversations/'+convoId+'/transcript')
+        .set(`Authorization`, `bearer {token}`)
+        .then(response => {
+            rawBody  = response.text;
+            return rawBody;
+        })
+}
+
 // POST request to our /api endpoint
 app.post('/api', (req, res) => {
 
@@ -24,12 +34,13 @@ app.post('/api', (req, res) => {
     const convoId = req.body.data.data.conversationId
 
     // log the response, use the util function to parse all the way into the object
-    console.log(util.inspect(convoId, {showHidden: false, depth: null}))
+    console.log(util.inspect(body, {showHidden: false, depth: null}))
     console.log("Getting transcript of the conversation with ID = " + convoId)
+
+    console.log(lookUpConversation(convoId))
 
     // end the connection with a positive response
     res.status(200)
-    return res.end()
 })
 
 // HELPER functions
@@ -42,9 +53,3 @@ app.post('/api', (req, res) => {
 //         .send(message)
 //         .catch(err => console.log(err))
 // }
-
-// look up meta data about this conversation
-const lookUpConversation = convoId => {
-     return request.get('https://driftapi.com/conversations/'+convoId+'/transcript')
-         .set(`Authorization`, `bearer {token}`)
-}
