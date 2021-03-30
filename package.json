@@ -1,21 +1,21 @@
 {
-  "name": "webhook-handler",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "name": "drift-webhook-handler",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node routes/routes.js"
+    "start": "node ./bin/www"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "async": "^3.2.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "moment": "^2.29.1",
-    "ngrok": "^3.1.0",
-    "nodemon": "^1.19.4",
-    "superagent": "3.8.1"
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.2",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.7"
   }
 }
